@@ -32,7 +32,6 @@ void MainWindow::setupMenu()
 {
     // Create Menu Bar
     QMenuBar *menuBar = this->menuBar();
-
     // File Menu
     QMenu *fileMenu = menuBar->addMenu(tr("&File"));
     fileMenu->setStyleSheet(
@@ -88,6 +87,9 @@ void MainWindow::setupMenu()
 
 void MainWindow::setupUI()
 {
+
+    //change the default window name
+    this->setWindowTitle("NSE Dashboard");
     // Create a central widget
     QWidget *centralWidget = new QWidget(this);
 
