@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>bearvsbull.jpg</file>
+        <file>bullvsbear2.jpg</file>
+        <file>2461918_115.jpg</file>
+        <file>3d-rendering-financial-neon-bull.jpg</file>
+        <file>new_bear.jpg</file>
+    </qresource>
+</RCC>
