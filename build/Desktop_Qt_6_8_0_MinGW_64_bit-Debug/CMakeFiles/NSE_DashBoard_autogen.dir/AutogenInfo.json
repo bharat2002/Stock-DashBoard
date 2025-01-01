@@ -267,9 +267,9 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/project/NSE_DashBoard/custommenu.h",
+			"D:/project/NSE_DashBoard/Styles.h",
 			"MU",
-			"EWIEGA46WW/moc_custommenu.cpp",
+			"EWIEGA46WW/moc_Styles.cpp",
 			null
 		],
 		[
@@ -350,7 +350,6 @@
 	"SETTINGS_FILE" : "D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/NSE_DashBoard_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
-		[ "D:/project/NSE_DashBoard/custommenu.cpp", "MU", null ],
 		[ "D:/project/NSE_DashBoard/main.cpp", "MU", null ],
 		[ "D:/project/NSE_DashBoard/mainwindow.cpp", "MU", null ]
 	],

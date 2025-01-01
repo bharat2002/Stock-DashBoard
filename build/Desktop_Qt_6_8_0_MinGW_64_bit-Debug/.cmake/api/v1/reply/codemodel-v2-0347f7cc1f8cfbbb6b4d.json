@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-b2fa189090b45734ec00.json",
+					"jsonFile" : "directory-.-Debug-825418779ed16a9a2588.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "NSE_DashBoard::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-NSE_DashBoard-Debug-4a81930c0e14b65e666d.json",
+					"jsonFile" : "target-NSE_DashBoard-Debug-40a336c6267b71aad7c5.json",
 					"name" : "NSE_DashBoard",
 					"projectIndex" : 0
 				},

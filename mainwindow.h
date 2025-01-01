@@ -1,6 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
+#include "Styles.h"
 #include <QMainWindow>
 
 QT_BEGIN_NAMESPACE
@@ -14,6 +14,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void closeEvent(QCloseEvent *event) override ;
 
 private slots:
     void onButtonClicked();     // Slot for button click
@@ -25,7 +26,6 @@ private slots:
     void switchToDarkMode();    // Slot for Tools -> Dark Mode
     void switchToLightMode();   // Slot for Tools -> Light Mode
     void toggleSidebar();       // Slot for View -> Toggle Sidebar
-
 private:
     Ui::MainWindow *ui;
     void setupMenu();           // Method to set up the menu

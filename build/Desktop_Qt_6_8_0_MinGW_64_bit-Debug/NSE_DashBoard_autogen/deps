@@ -530,13 +530,12 @@ NSE_DashBoard_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
 	D:/project/NSE_DashBoard/CMakeLists.txt \
 	D:/project/NSE_DashBoard/Resources.qrc \
+	D:/project/NSE_DashBoard/Styles.h \
 	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake \
 	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
 	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeSystem.cmake \
 	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/NSE_DashBoard_autogen/moc_predefs.h \
-	D:/project/NSE_DashBoard/custommenu.cpp \
-	D:/project/NSE_DashBoard/custommenu.h \
 	D:/project/NSE_DashBoard/main.cpp \
 	D:/project/NSE_DashBoard/mainwindow.cpp \
 	D:/project/NSE_DashBoard/mainwindow.h \

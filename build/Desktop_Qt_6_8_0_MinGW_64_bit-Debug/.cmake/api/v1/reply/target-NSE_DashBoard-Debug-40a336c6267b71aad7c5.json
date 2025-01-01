@@ -75,13 +75,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 63,
+				"line" : 65,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 46,
+				"line" : 48,
 				"parent" : 0
 			},
 			{
@@ -365,18 +365,18 @@
 				0,
 				1,
 				2,
-				8
+				9
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "NSE_DashBoard_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "NSE_DashBoard_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "NSE_DashBoard_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "NSE_DashBoard::@6890427a1f51a3e7e1df",
@@ -489,7 +489,7 @@
 				0,
 				1,
 				2,
-				8
+				9
 			]
 		},
 		{
@@ -497,7 +497,8 @@
 			"sourceIndexes" : 
 			[
 				3,
-				6
+				6,
+				7
 			]
 		},
 		{
@@ -506,15 +507,15 @@
 			[
 				4,
 				5,
-				7
+				8
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				9,
-				10
+				10,
+				11
 			]
 		}
 	],
@@ -553,6 +554,11 @@
 			"backtrace" : 4,
 			"path" : "Resources.qrc",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 4,
+			"path" : "Styles.h",
+			"sourceGroupIndex" : 1
 		},
 		{
 			"backtrace" : 0,
