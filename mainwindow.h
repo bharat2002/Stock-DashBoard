@@ -26,8 +26,15 @@ private slots:
     void switchToDarkMode();    // Slot for Tools -> Dark Mode
     void switchToLightMode();   // Slot for Tools -> Light Mode
     void toggleSidebar();       // Slot for View -> Toggle Sidebar
+    void addTabWithCloseButton(QWidget *widget, const QString &tabName);
+    void addStockOverviewTab();
+    void addSearchBarTab();
+    void addLiveStockChartTab();
+    void addNewsFeedTab();
+
 private:
     Ui::MainWindow *ui;
+    QTabWidget *tabWidget;
     void setupMenu();           // Method to set up the menu
     void setupUI();             // Method to set up the UI elements
 };
