@@ -1,12 +1,17 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "Styles.h"
 #include <QDebug>
+#include <QLineEdit>
 #include <QMenuBar>
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
 #include <QCloseEvent>
 #include <QAction>
+#include <QListWidget>
+#include <QTableWidget>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,8 +26,6 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Setup the menu bar
     setupMenu();
-
-
 }
 
 MainWindow::~MainWindow()
@@ -39,7 +42,6 @@ void MainWindow::setupMenu()
     fileMenu->setStyleSheet(MenuStyle);
     QAction *openAction = new QAction(tr("&Open"), this);
     QAction *saveAction = new QAction(tr("&Save"), this);
-
     QAction *exitAction = new QAction(tr("E&xit"), this);
     fileMenu->addAction(openAction);
     fileMenu->addAction(saveAction);
@@ -49,20 +51,28 @@ void MainWindow::setupMenu()
     // Tools Menu
     QMenu *toolsMenu = menuBar->addMenu(tr("&Tools"));
     QAction *refreshAction = new QAction(tr("&Refresh Data"), this);
-    QAction *darkModeAction = new QAction(tr("&Dark Mode"), this);
-    QAction *lightModeAction = new QAction(tr("&Light Mode"), this);
+    QAction *StockOverview = new QAction(tr("&Stock Overview"), this);
+    QAction *SearchBar = new QAction(tr("&Search Bar"), this);
+    QAction *LiveStock = new QAction(tr("&Live Stock"), this);
     toolsMenu->setStyleSheet(MenuStyle);
     toolsMenu->addAction(refreshAction);
+    toolsMenu->addAction(StockOverview);
+    toolsMenu->addAction(SearchBar);
+    toolsMenu->addAction(LiveStock);
     toolsMenu->addSeparator();
-    toolsMenu->addAction(darkModeAction);
-    toolsMenu->addAction(lightModeAction);
 
     // View Menu
     QMenu *viewMenu = menuBar->addMenu(tr("&View"));
     QAction *toggleSidebarAction = new QAction(tr("&Toggle Sidebar"), this);
+    QMenu *themeMenu = new QMenu(tr("&Theme"), this);
+    QAction *actionLightMode = new QAction(tr("&Light Mode"), this);
+    QAction *actionDarkMode = new QAction(tr("&Dark Mode"), this);
+    themeMenu->addAction(actionLightMode);
+    themeMenu->addAction(actionDarkMode);
+    viewMenu->addMenu(themeMenu);
+    viewMenu->setStyleSheet(MenuStyle);
     viewMenu->addAction(toggleSidebarAction);
 
-    viewMenu->setStyleSheet(MenuStyle);
     // Help Menu
     QMenu *helpMenu = menuBar->addMenu(tr("&Help"));
     helpMenu->setStyleSheet(MenuStyle);
@@ -74,35 +84,27 @@ void MainWindow::setupMenu()
     connect(saveAction, &QAction::triggered, this, &MainWindow::saveFile);
     connect(exitAction, &QAction::triggered, this, &MainWindow::exitApp);
     connect(refreshAction, &QAction::triggered, this, &MainWindow::refreshData);
-    connect(darkModeAction, &QAction::triggered, this, &MainWindow::switchToDarkMode);
-    connect(lightModeAction, &QAction::triggered, this, &MainWindow::switchToLightMode);
+    connect(actionDarkMode, &QAction::triggered, this, &MainWindow::switchToDarkMode);
+    connect(actionLightMode, &QAction::triggered, this, &MainWindow::switchToLightMode);
     connect(toggleSidebarAction, &QAction::triggered, this, &MainWindow::toggleSidebar);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAbout);
+    connect(StockOverview, &QAction::triggered, this, &MainWindow::addStockOverviewTab);
+    connect(LiveStock, &QAction::triggered, this, &MainWindow::addLiveStockChartTab);
+    connect(SearchBar, &QAction::triggered, this, &MainWindow::addSearchBarTab);
 }
 
 void MainWindow::setupUI()
 {
-
     //change the default window name
     this->setWindowTitle("NSE Dashboard");
+    //Adding Tab Widgets
+    tabWidget = new QTabWidget(this); //Tab Widget for Holding Tabs
+    tabWidget->setTabPosition(QTabWidget::North);
 
-    //Add a logo
-    // QPixmap LogoPixMap(":/images/dashboardlogo.jpg");
     QIcon DashBoardIcon(":/images/download.png");
     this->setWindowIcon(DashBoardIcon);
-    // Create a central widget
-    QWidget *centralWidget = new QWidget(this);
-
-    // Apply the background to the central widget
-    centralWidget->setStyleSheet(
-        "background-image: url(:/images/new_bear.jpg);"
-        "background-repeat: no-repeat;"
-        "background-position: center;"
-        "background-clip: content;"
-        );
-
     // Set the central widget
-    setCentralWidget(centralWidget);
+    setCentralWidget(tabWidget);
 
 }
 
@@ -141,7 +143,7 @@ void MainWindow::switchToDarkMode()
 
 void MainWindow::switchToLightMode()
 {
-    this->setStyleSheet("background-color: white; color: black;");
+    this->setStyleSheet(LightModeStyle);
     QMessageBox::information(this, "Light Mode", "Switched to Light Mode!");
 }
 
@@ -166,4 +168,63 @@ void MainWindow::closeEvent(QCloseEvent* event)
         event->ignore();
         return;
     }
+}
+
+void MainWindow::addTabWithCloseButton(QWidget *widget, const QString &tabName)
+{
+    // Add widget to tab and make it closable
+    int index = tabWidget->addTab(widget, tabName);
+
+    // Add close button to tab title
+    QPushButton *closeButton = new QPushButton("X");
+    closeButton->setFixedSize(20, 20);
+    closeButton->setStyleSheet(CloseButtonStyle);
+    tabWidget->tabBar()->setTabButton(index, QTabBar::RightSide, closeButton);
+    tabWidget->tabBar()->setStyleSheet("QTabBar::tabButton{padding-left = 5px;}");
+    // Connect close button to remove the tab
+    connect(closeButton, &QPushButton::clicked, this, [this, index]() {
+        tabWidget->removeTab(index);
+    });
+
+    tabWidget->setCurrentIndex(index); // Switch to the newly added tab
+}
+
+void MainWindow::addStockOverviewTab()
+{
+    QWidget *tab = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(tab);
+    QTableWidget *table = new QTableWidget();
+    table->setRowCount(5);
+    table->setColumnCount(3);
+    layout->addWidget(table);
+    addTabWithCloseButton(tab, "Stock Overview");
+}
+
+void MainWindow::addSearchBarTab()
+{
+    QWidget *tab = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(tab);
+    QLineEdit *searchBar = new QLineEdit();
+    searchBar->setPlaceholderText("Enter Stock Name or Ticker");
+    layout->addWidget(searchBar);
+    addTabWithCloseButton(tab, "Search Bar");
+}
+
+void MainWindow::addLiveStockChartTab()
+{
+    QWidget *tab = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(tab);
+    QPushButton *chartButton = new QPushButton("Show Live Stock Chart");
+    layout->addWidget(chartButton);
+    addTabWithCloseButton(tab, "Live Stock Chart");
+}
+
+void MainWindow::addNewsFeedTab()
+{
+    QWidget *tab = new QWidget();
+    QVBoxLayout *layout = new QVBoxLayout(tab);
+    QListWidget *newsFeed = new QListWidget();
+    newsFeed->addItem("Breaking News on Stock Market...");
+    layout->addWidget(newsFeed);
+    addTabWithCloseButton(tab, "News Feed");
 }
