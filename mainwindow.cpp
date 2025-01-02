@@ -5,6 +5,7 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QCloseEvent>
 #include <QAction>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -156,16 +157,13 @@ void MainWindow::showAbout()
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    QMessageBox messageBox(this);
-    messageBox.setWindowTitle("Exit Application");
-    messageBox.setText("Are you sure you want to exit?");
-    messageBox.setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    messageBox.setDefaultButton(QMessageBox::No);
-    int result = messageBox.exec();
-    if (result == QMessageBox::Yes) {
+    QMessageBox::StandardButton reply = QMessageBox::critical(this,"Exit Application","Are you sure you want to exit?",QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        event->accept();
         QApplication::quit(); // Exit the application
-    } else if (result == QMessageBox::No) {
+    } else if (reply == QMessageBox::No) {
         // No action is needed; simply return
+        event->ignore();
         return;
     }
 }
