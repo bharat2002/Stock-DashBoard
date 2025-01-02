@@ -5,8 +5,8 @@
 #include <QVBoxLayout>
 #include <QPushButton>
 #include <QMessageBox>
+#include <QCloseEvent>
 #include <QAction>
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Setup the menu bar
     setupMenu();
+
+
 }
 
 MainWindow::~MainWindow()
@@ -33,18 +35,8 @@ void MainWindow::setupMenu()
     // Create Menu Bar
     QMenuBar *menuBar = this->menuBar();
     // File Menu
-    QMenu *fileMenu = menuBar->addMenu(tr("&File"));
-    fileMenu->setStyleSheet(
-        "QMenu::item {"
-        "   padding-left: 20px;"         // Left alignment for items
-        "   min-width: 120px;"           // Minimum width of the menu items
-        "   height: 20px;"               // Height of each menu item
-        "}"
-        "QMenu::item:selected {"
-        "   background-color: #5A5A5A;" // Color of item when selected
-        "   color: white;"               // Text color when selected
-        "}"
-        );
+    QMenu *fileMenu = (menuBar->addMenu(tr("&File")));
+    fileMenu->setStyleSheet(MenuStyle);
     QAction *openAction = new QAction(tr("&Open"), this);
     QAction *saveAction = new QAction(tr("&Save"), this);
 
@@ -59,6 +51,7 @@ void MainWindow::setupMenu()
     QAction *refreshAction = new QAction(tr("&Refresh Data"), this);
     QAction *darkModeAction = new QAction(tr("&Dark Mode"), this);
     QAction *lightModeAction = new QAction(tr("&Light Mode"), this);
+    toolsMenu->setStyleSheet(MenuStyle);
     toolsMenu->addAction(refreshAction);
     toolsMenu->addSeparator();
     toolsMenu->addAction(darkModeAction);
@@ -69,8 +62,10 @@ void MainWindow::setupMenu()
     QAction *toggleSidebarAction = new QAction(tr("&Toggle Sidebar"), this);
     viewMenu->addAction(toggleSidebarAction);
 
+    viewMenu->setStyleSheet(MenuStyle);
     // Help Menu
     QMenu *helpMenu = menuBar->addMenu(tr("&Help"));
+    helpMenu->setStyleSheet(MenuStyle);
     QAction *aboutAction = new QAction(tr("&About"), this);
     helpMenu->addAction(aboutAction);
 
@@ -90,6 +85,11 @@ void MainWindow::setupUI()
 
     //change the default window name
     this->setWindowTitle("NSE Dashboard");
+
+    //Add a logo
+    // QPixmap LogoPixMap(":/images/dashboardlogo.jpg");
+    QIcon DashBoardIcon(":/images/download.png");
+    this->setWindowIcon(DashBoardIcon);
     // Create a central widget
     QWidget *centralWidget = new QWidget(this);
 
@@ -100,9 +100,6 @@ void MainWindow::setupUI()
         "background-position: center;"
         "background-clip: content;"
         );
-
-    // Create layout for central widget
-    QVBoxLayout *layout = new QVBoxLayout(centralWidget);
 
     // Set the central widget
     setCentralWidget(centralWidget);
@@ -156,4 +153,17 @@ void MainWindow::toggleSidebar()
 void MainWindow::showAbout()
 {
     QMessageBox::about(this, "About", "This is a stock dashboard application.\nVersion 1.0");
+}
+
+void MainWindow::closeEvent(QCloseEvent* event)
+{
+    QMessageBox::StandardButton reply = QMessageBox::critical(this,"Exit Application","Are you sure you want to exit?",QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::Yes) {
+        event->accept();
+        QApplication::quit(); // Exit the application
+    } else if (reply == QMessageBox::No) {
+        // No action is needed; simply return
+        event->ignore();
+        return;
+    }
 }

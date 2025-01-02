@@ -73,14 +73,6 @@ build CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj: CXX_COMPILER__NSE_DashBoa
   OBJECT_DIR = CMakeFiles\NSE_DashBoard.dir
   OBJECT_FILE_DIR = CMakeFiles\NSE_DashBoard.dir
 
-build CMakeFiles/NSE_DashBoard.dir/custommenu.cpp.obj: CXX_COMPILER__NSE_DashBoard_unscanned_Debug D$:/project/NSE_DashBoard/custommenu.cpp || cmake_object_order_depends_target_NSE_DashBoard
-  DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
-  DEP_FILE = CMakeFiles\NSE_DashBoard.dir\custommenu.cpp.obj.d
-  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
-  INCLUDES = -ID:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/NSE_DashBoard_autogen/include -isystem C:/Qt/6.8.0/mingw_64/include/QtCore -isystem C:/Qt/6.8.0/mingw_64/include -isystem C:/Qt/6.8.0/mingw_64/mkspecs/win32-g++ -isystem C:/Qt/6.8.0/mingw_64/include/QtWidgets -isystem C:/Qt/6.8.0/mingw_64/include/QtGui
-  OBJECT_DIR = CMakeFiles\NSE_DashBoard.dir
-  OBJECT_FILE_DIR = CMakeFiles\NSE_DashBoard.dir
-
 build CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp.obj: CXX_COMPILER__NSE_DashBoard_unscanned_Debug D$:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp || cmake_object_order_depends_target_NSE_DashBoard
   DEFINES = -DMINGW_HAS_SECURE_API=1 -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NEEDS_QMAIN -DQT_WIDGETS_LIB -DUNICODE -DWIN32 -DWIN64 -D_ENABLE_EXTENDED_ALIGNED_STORAGE -D_UNICODE -D_WIN64
   DEP_FILE = CMakeFiles\NSE_DashBoard.dir\NSE_DashBoard_autogen\EWIEGA46WW\qrc_Resources.cpp.obj.d
@@ -97,7 +89,7 @@ build CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resource
 #############################################
 # Link the executable NSE_DashBoard.exe
 
-build NSE_DashBoard.exe: CXX_EXECUTABLE_LINKER__NSE_DashBoard_Debug CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/mocs_compilation.cpp.obj CMakeFiles/NSE_DashBoard.dir/main.cpp.obj CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj CMakeFiles/NSE_DashBoard.dir/custommenu.cpp.obj CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp.obj | C$:/Qt/6.8.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.8.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.8.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.8.0/mingw_64/lib/libQt6EntryPoint.a || NSE_DashBoard_autogen NSE_DashBoard_autogen_timestamp_deps
+build NSE_DashBoard.exe: CXX_EXECUTABLE_LINKER__NSE_DashBoard_Debug CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/mocs_compilation.cpp.obj CMakeFiles/NSE_DashBoard.dir/main.cpp.obj CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp.obj | C$:/Qt/6.8.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.8.0/mingw_64/lib/libQt6Gui.a C$:/Qt/6.8.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.8.0/mingw_64/lib/libQt6EntryPoint.a || NSE_DashBoard_autogen NSE_DashBoard_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/6.8.0/mingw_64/lib/libQt6Widgets.a  C:/Qt/6.8.0/mingw_64/lib/libQt6Gui.a  C:/Qt/6.8.0/mingw_64/lib/libQt6Core.a  -lmpr  -luserenv  -lmingw32  C:/Qt/6.8.0/mingw_64/lib/libQt6EntryPoint.a  -lshell32  -ld3d11  -ldxgi  -ldxguid  -ld3d12  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
@@ -201,7 +193,7 @@ build NSE_DashBoard_autogen/timestamp NSE_DashBoard_autogen/mocs_compilation.cpp
 #############################################
 # Custom command for NSE_DashBoard_autogen\EWIEGA46WW\qrc_Resources.cpp
 
-build NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp | ${cmake_ninja_workdir}NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp: CUSTOM_COMMAND D$:/project/NSE_DashBoard/Resources.qrc CMakeFiles/NSE_DashBoard_autogen.dir/AutoRcc_Resources_EWIEGA46WW_Info.json D$:/project/NSE_DashBoard/bullvsbear2.jpg D$:/project/NSE_DashBoard/new_bear.jpg D$:/project/NSE_DashBoard/bearvsbull.jpg D$:/project/NSE_DashBoard/2461918_115.jpg D$:/project/NSE_DashBoard/3d-rendering-financial-neon-bull.jpg C$:/Qt/6.8.0/mingw_64/bin/rcc.exe C$:/Qt/6.8.0/mingw_64/bin/rcc.exe || NSE_DashBoard_autogen NSE_DashBoard_autogen_timestamp_deps
+build NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp | ${cmake_ninja_workdir}NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp: CUSTOM_COMMAND D$:/project/NSE_DashBoard/Resources.qrc CMakeFiles/NSE_DashBoard_autogen.dir/AutoRcc_Resources_EWIEGA46WW_Info.json D$:/project/NSE_DashBoard/bullvsbear2.jpg D$:/project/NSE_DashBoard/new_bear.jpg D$:/project/NSE_DashBoard/bearvsbull.jpg D$:/project/NSE_DashBoard/2461918_115.jpg D$:/project/NSE_DashBoard/3d-rendering-financial-neon-bull.jpg D$:/project/NSE_DashBoard/download.png D$:/project/NSE_DashBoard/dashboardlogo.jpg C$:/Qt/6.8.0/mingw_64/bin/rcc.exe C$:/Qt/6.8.0/mingw_64/bin/rcc.exe || NSE_DashBoard_autogen NSE_DashBoard_autogen_timestamp_deps
   COMMAND = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\project\NSE_DashBoard\build\Desktop_Qt_6_8_0_MinGW_64_bit-Debug && C:\Qt\Tools\CMake_64\bin\cmake.exe -E cmake_autorcc D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/CMakeFiles/NSE_DashBoard_autogen.dir/AutoRcc_Resources_EWIEGA46WW_Info.json Debug"
   DESC = Automatic RCC for Resources.qrc
   restat = 1

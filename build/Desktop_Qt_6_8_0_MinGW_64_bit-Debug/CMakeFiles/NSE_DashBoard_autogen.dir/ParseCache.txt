@@ -360,10 +360,12 @@ D:/project/NSE_DashBoard/mainwindow.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h
  mdp:C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h
+ mdp:D:/project/NSE_DashBoard/Styles.h
  mdp:D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_0_MinGW_64_bit-Debug/NSE_DashBoard_autogen/moc_predefs.h
  mdp:D:/project/NSE_DashBoard/mainwindow.h
-D:/project/NSE_DashBoard/main.cpp
 D:/project/NSE_DashBoard/mainwindow.cpp
  uic:./ui_mainwindow.h
+D:/project/NSE_DashBoard/main.cpp
 D:/project/NSE_DashBoard/custommenu.h
 D:/project/NSE_DashBoard/custommenu.cpp
+D:/project/NSE_DashBoard/Styles.h
