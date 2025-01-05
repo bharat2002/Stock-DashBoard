@@ -12,6 +12,7 @@
 #include <QListWidget>
 #include <QTableWidget>
 
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -23,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // Setup UI elements
     setupUI();
-
+    setupDB();
     // Setup the menu bar
     setupMenu();
 }
@@ -204,9 +205,18 @@ void MainWindow::addSearchBarTab()
 {
     QWidget *tab = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout(tab);
-    QLineEdit *searchBar = new QLineEdit();
+    QHBoxLayout *BarWithButtonLayout = new QHBoxLayout(tab);
+    QHBoxLayout *DisplayStockSearchLayout = new QHBoxLayout(tab);
+    QGridLayout* DisplayStockGrid = new QGridLayout(tab);
+
+    QLineEdit *searchBar = new QLineEdit(tab);
     searchBar->setPlaceholderText("Enter Stock Name or Ticker");
-    layout->addWidget(searchBar);
+    QPushButton *SearchButton =  new QPushButton("Search",tab);
+    BarWithButtonLayout->addWidget(searchBar,1);
+    BarWithButtonLayout->addWidget(SearchButton,0);
+
+    layout->addLayout(BarWithButtonLayout,0);
+    layout->addLayout(DisplayStockSearchLayout,1);
     addTabWithCloseButton(tab, "Search Bar");
 }
 
@@ -227,4 +237,24 @@ void MainWindow::addNewsFeedTab()
     newsFeed->addItem("Breaking News on Stock Market...");
     layout->addWidget(newsFeed);
     addTabWithCloseButton(tab, "News Feed");
+}
+
+void MainWindow::setupDB()
+{
+    this->MySqlDBConn = QSqlDatabase::addDatabase("QMYSQL");
+    qDebug() << "Available drivers:" << QSqlDatabase::drivers();
+    MySqlDBConn.setDatabaseName(DatabaseName);
+    MySqlDBConn.setHostName(HostName);
+    MySqlDBConn.setUserName("root");
+    MySqlDBConn.setPassword("password");
+    MySqlDBConn.setPort(3306);
+    bool connectionSuccess = MySqlDBConn.open();
+    if(!connectionSuccess)
+    {
+        QMessageBox::critical(this,"Database Connection","Database Connection Failed..");
+    }
+    else
+    {
+        QMessageBox::critical(this,"Database Connection","Database Connection Success.");
+    }
 }

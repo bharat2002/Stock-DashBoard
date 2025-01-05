@@ -51,7 +51,7 @@
 			{
 				"command" : 3,
 				"file" : 1,
-				"line" : 23,
+				"line" : 28,
 				"parent" : 0
 			},
 			{
@@ -75,13 +75,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 65,
+				"line" : 70,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 48,
+				"line" : 53,
 				"parent" : 0
 			},
 			{
@@ -291,6 +291,10 @@
 				},
 				{
 					"backtrace" : 6,
+					"define" : "QT_SQL_LIB"
+				},
+				{
+					"backtrace" : 6,
 					"define" : "QT_WIDGETS_LIB"
 				},
 				{
@@ -338,6 +342,11 @@
 					"backtrace" : 14,
 					"isSystem" : true,
 					"path" : "C:/Qt/6.8.0/mingw_64/mkspecs/win32-g++"
+				},
+				{
+					"backtrace" : 6,
+					"isSystem" : true,
+					"path" : "C:/Qt/6.8.0/mingw_64/include/QtSql"
 				},
 				{
 					"backtrace" : 6,
@@ -405,6 +414,11 @@
 			{
 				"fragment" : "-mwindows",
 				"role" : "flags"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "C:\\Qt\\6.8.0\\mingw_64\\lib\\libQt6Sql.a",
+				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
