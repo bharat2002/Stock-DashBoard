@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include "Styles.h"
 #include <QMainWindow>
-
+#include <QtSql/QSqlDatabase>
+#include <thread>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,6 +16,7 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void closeEvent(QCloseEvent *event) override ;
+    QSqlDatabase MySqlDBConn;
 
 private slots:
     void onButtonClicked();     // Slot for button click
@@ -34,9 +36,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    void setupUI();             // Method to set up the UI elements
     QTabWidget *tabWidget;
     void setupMenu();           // Method to set up the menu
-    void setupUI();             // Method to set up the UI elements
+    void setupDB();
 };
 
 #endif // MAINWINDOW_H

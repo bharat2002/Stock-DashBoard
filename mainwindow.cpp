@@ -11,23 +11,27 @@
 #include <QAction>
 #include <QListWidget>
 #include <QTableWidget>
-
+#include <QtConcurrent/QtConcurrent>
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
 
+    ui->setupUi(this);
     // Maximize the window on start
     this->showMaximized();
-
-    // Setup UI elements
     setupUI();
-
     // Setup the menu bar
     setupMenu();
+    this->MySqlDBConn = QSqlDatabase::addDatabase("QMYSQL");
+    MySqlDBConn.setDatabaseName(DatabaseName);
+    MySqlDBConn.setHostName(HostName);
+    MySqlDBConn.setUserName("root");
+    MySqlDBConn.setPassword("password");
+    MySqlDBConn.setPort(3306);
+    setupDB();
+    // Setup the MySQL database in a worker thread
 }
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -42,12 +46,13 @@ void MainWindow::setupMenu()
     fileMenu->setStyleSheet(MenuStyle);
     QAction *openAction = new QAction(tr("&Open"), this);
     QAction *saveAction = new QAction(tr("&Save"), this);
-    QAction *exitAction = new QAction(tr("E&xit"), this);
+    QAction *exitAction = new QAction(tr("&Exit"), this);
+    QAction *dbConnection  = new QAction(tr("&Connect to Database"),this);
     fileMenu->addAction(openAction);
     fileMenu->addAction(saveAction);
+    fileMenu->addAction(dbConnection);
     fileMenu->addSeparator();
     fileMenu->addAction(exitAction);
-
     // Tools Menu
     QMenu *toolsMenu = menuBar->addMenu(tr("&Tools"));
     QAction *refreshAction = new QAction(tr("&Refresh Data"), this);
@@ -91,6 +96,9 @@ void MainWindow::setupMenu()
     connect(StockOverview, &QAction::triggered, this, &MainWindow::addStockOverviewTab);
     connect(LiveStock, &QAction::triggered, this, &MainWindow::addLiveStockChartTab);
     connect(SearchBar, &QAction::triggered, this, &MainWindow::addSearchBarTab);
+    connect(dbConnection, &QAction::triggered, this, [this](){
+        setupDB();
+    });
 }
 
 void MainWindow::setupUI()
@@ -204,9 +212,18 @@ void MainWindow::addSearchBarTab()
 {
     QWidget *tab = new QWidget();
     QVBoxLayout *layout = new QVBoxLayout(tab);
-    QLineEdit *searchBar = new QLineEdit();
+    QHBoxLayout *BarWithButtonLayout = new QHBoxLayout(tab);
+    QHBoxLayout *DisplayStockSearchLayout = new QHBoxLayout(tab);
+    QGridLayout* DisplayStockGrid = new QGridLayout(tab);
+
+    QLineEdit *searchBar = new QLineEdit(tab);
     searchBar->setPlaceholderText("Enter Stock Name or Ticker");
-    layout->addWidget(searchBar);
+    QPushButton *SearchButton =  new QPushButton("Search",tab);
+    BarWithButtonLayout->addWidget(searchBar,1);
+    BarWithButtonLayout->addWidget(SearchButton,0);
+
+    layout->addLayout(BarWithButtonLayout,0);
+    layout->addLayout(DisplayStockSearchLayout,1);
     addTabWithCloseButton(tab, "Search Bar");
 }
 
@@ -227,4 +244,20 @@ void MainWindow::addNewsFeedTab()
     newsFeed->addItem("Breaking News on Stock Market...");
     layout->addWidget(newsFeed);
     addTabWithCloseButton(tab, "News Feed");
+}
+
+void MainWindow::setupDB()
+{
+    bool connectionSuccess = MySqlDBConn.open();
+    if(!connectionSuccess)
+    {
+        if(QMessageBox::Retry == QMessageBox::question(this,"Database Connection","Database Connection Failed..",QMessageBox::Ok|QMessageBox::Retry,QMessageBox::Ok))
+        {
+            setupDB();
+        }
+    }
+    else
+    {
+        QMessageBox::information(this,"Database Connection","Database Connection Success.");
+    }
 }

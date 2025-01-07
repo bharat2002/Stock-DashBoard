@@ -24,4 +24,8 @@
     "QPushButton:hover {" \
     "   background-color: darkred;" \
     "}"
+#define DatabaseName "stock_dashboard"
+#define IndexTableName "nifty_data"
+#define HostName "localhost"
+
 #endif // STYLES_H
