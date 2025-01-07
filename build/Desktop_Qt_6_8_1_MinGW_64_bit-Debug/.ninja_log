@@ -1,0 +1,24 @@
+# ninja log v6
+1520	21833	7579725787584142	CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp.obj	4fdaca57dac54ae8
+844	4377	7579808078539812	CMakeFiles/NSE_DashBoard.dir/main.cpp.obj	216840faa6d36575
+328	7734	7579812946820051	CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj	65a894060c4d9854
+857	1505	7579725787246505	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp	2b57a4e2844afef4
+7735	8365	7579813020895734	NSE_DashBoard.exe	7bef9ab27a111b2d
+857	1505	7579725787246505	NSE_DashBoard_autogen/EWIEGA46WW/qrc_Resources.cpp	2b57a4e2844afef4
+30	328	7579812943842632	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+30	328	7579812943842632	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+833	4536	7579808078424044	CMakeFiles/NSE_DashBoard.dir/NSE_DashBoard_autogen/mocs_compilation.cpp.obj	e731004e336a7c68
+30	328	7579812943842632	NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+30	328	7579812943842632	NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+56	323	7579813176832627	NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+56	323	7579813176832627	NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+56	323	7579813176832627	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+56	323	7579813176832627	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+324	6188	7579813179511478	CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj	65a894060c4d9854
+6189	6725	7579813238163910	NSE_DashBoard.exe	7bef9ab27a111b2d
+45	279	7579813496369742	NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+45	279	7579813496369742	NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+45	279	7579813496369742	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/timestamp	9047aeb64142d1e1
+45	279	7579813496369742	D:/project/NSE_DashBoard/build/Desktop_Qt_6_8_1_MinGW_64_bit-Debug/NSE_DashBoard_autogen/mocs_compilation.cpp	9047aeb64142d1e1
+280	5986	7579813498725482	CMakeFiles/NSE_DashBoard.dir/mainwindow.cpp.obj	65a894060c4d9854
+5986	6522	7579813555790112	NSE_DashBoard.exe	7bef9ab27a111b2d

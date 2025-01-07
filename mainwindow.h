@@ -3,7 +3,7 @@
 #include "Styles.h"
 #include <QMainWindow>
 #include <QtSql/QSqlDatabase>
-
+#include <thread>
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
